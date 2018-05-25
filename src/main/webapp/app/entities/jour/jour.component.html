@@ -1,0 +1,86 @@
+<div>
+    <h2>
+        <span>Jours</span>
+        <button class="btn btn-primary float-right jh-create-entity create-jour" [routerLink]="['/', { outlets: { popup: ['jour-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Jour
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="jours">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Petit Dejeuner</span></th>
+            <th><span>Recette Entree Midi</span></th>
+            <th><span>Recette Plat Midi</span></th>
+            <th><span>Recette Entree Soir</span></th>
+            <th><span>Recette Plat Soir</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let jour of jours ;trackBy: trackId">
+                <td><a [routerLink]="['../jour', jour.id ]">{{jour.id}}</a></td>
+                <td>
+                    <div *ngIf="jour.petitDejeuner">
+                        <a [routerLink]="['../recette', jour.petitDejeuner?.id ]" >{{jour.petitDejeuner?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="jour.recetteEntreeMidi">
+                        <a [routerLink]="['../recette', jour.recetteEntreeMidi?.id ]" >{{jour.recetteEntreeMidi?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="jour.recettePlatMidi">
+                        <a [routerLink]="['../recette', jour.recettePlatMidi?.id ]" >{{jour.recettePlatMidi?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="jour.recetteEntreeSoir">
+                        <a [routerLink]="['../recette', jour.recetteEntreeSoir?.id ]" >{{jour.recetteEntreeSoir?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="jour.recettePlatSoir">
+                        <a [routerLink]="['../recette', jour.recettePlatSoir?.id ]" >{{jour.recettePlatSoir?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../jour', jour.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'jour/'+ jour.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'jour/'+ jour.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

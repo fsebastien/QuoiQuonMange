@@ -1,0 +1,52 @@
+
+<div *ngIf="jour">
+    <h2><span>Jour</span> {{jour.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Petit Dejeuner</span></dt>
+        <dd>
+            <div *ngIf="jour.petitDejeuner">
+                <a [routerLink]="['/recette', jour.petitDejeuner?.id]">{{jour.petitDejeuner?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Recette Entree Midi</span></dt>
+        <dd>
+            <div *ngIf="jour.recetteEntreeMidi">
+                <a [routerLink]="['/recette', jour.recetteEntreeMidi?.id]">{{jour.recetteEntreeMidi?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Recette Plat Midi</span></dt>
+        <dd>
+            <div *ngIf="jour.recettePlatMidi">
+                <a [routerLink]="['/recette', jour.recettePlatMidi?.id]">{{jour.recettePlatMidi?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Recette Entree Soir</span></dt>
+        <dd>
+            <div *ngIf="jour.recetteEntreeSoir">
+                <a [routerLink]="['/recette', jour.recetteEntreeSoir?.id]">{{jour.recetteEntreeSoir?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Recette Plat Soir</span></dt>
+        <dd>
+            <div *ngIf="jour.recettePlatSoir">
+                <a [routerLink]="['/recette', jour.recettePlatSoir?.id]">{{jour.recettePlatSoir?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'jour/'+ jour.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

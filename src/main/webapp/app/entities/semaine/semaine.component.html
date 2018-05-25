@@ -1,0 +1,98 @@
+<div>
+    <h2>
+        <span>Semaines</span>
+        <button class="btn btn-primary float-right jh-create-entity create-semaine" [routerLink]="['/', { outlets: { popup: ['semaine-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Semaine
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="semaines">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Lundi</span></th>
+            <th><span>Mardi</span></th>
+            <th><span>Mercredi</span></th>
+            <th><span>Jeudi</span></th>
+            <th><span>Vendredi</span></th>
+            <th><span>Samedi</span></th>
+            <th><span>Dimanche</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let semaine of semaines ;trackBy: trackId">
+                <td><a [routerLink]="['../semaine', semaine.id ]">{{semaine.id}}</a></td>
+                <td>
+                    <div *ngIf="semaine.lundi">
+                        <a [routerLink]="['../jour', semaine.lundi?.id ]" >{{semaine.lundi?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="semaine.mardi">
+                        <a [routerLink]="['../jour', semaine.mardi?.id ]" >{{semaine.mardi?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="semaine.mercredi">
+                        <a [routerLink]="['../jour', semaine.mercredi?.id ]" >{{semaine.mercredi?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="semaine.jeudi">
+                        <a [routerLink]="['../jour', semaine.jeudi?.id ]" >{{semaine.jeudi?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="semaine.vendredi">
+                        <a [routerLink]="['../jour', semaine.vendredi?.id ]" >{{semaine.vendredi?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="semaine.samedi">
+                        <a [routerLink]="['../jour', semaine.samedi?.id ]" >{{semaine.samedi?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="semaine.dimanche">
+                        <a [routerLink]="['../jour', semaine.dimanche?.id ]" >{{semaine.dimanche?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../semaine', semaine.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'semaine/'+ semaine.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'semaine/'+ semaine.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

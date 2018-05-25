@@ -1,0 +1,68 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "lundi",
+            "otherEntityName": "jour",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "semaine"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "mardi",
+            "otherEntityName": "jour",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "semaine"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "mercredi",
+            "otherEntityName": "jour",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "semaine"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "jeudi",
+            "otherEntityName": "jour",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "semaine"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "vendredi",
+            "otherEntityName": "jour",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "semaine"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "samedi",
+            "otherEntityName": "jour",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "semaine"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "dimanche",
+            "otherEntityName": "jour",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "semaine"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20180525125137",
+    "entityTableName": "semaine",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

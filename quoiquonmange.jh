@@ -1,0 +1,32 @@
+entity Semaine {
+	id String
+}
+
+entity Jour {
+	id String
+
+}
+
+entity Recette {
+	id String
+	intitule String
+	Description String
+}
+
+relationship OneToOne {
+	Semaine{lundi} to Jour,
+    Semaine{mardi} to Jour,
+    Semaine{mercredi} to Jour,
+    Semaine{jeudi} to Jour,
+    Semaine{vendredi} to Jour,
+    Semaine{samedi} to Jour,
+    Semaine{dimanche} to Jour
+}
+
+relationship ManyToOne {
+	Jour{PetitDejeuner} to Recette,
+    Jour{RecetteEntreeMidi} to Recette,
+    Jour{RecettePlatMidi} to Recette,
+    Jour{RecetteEntreeSoir} to Recette,
+    Jour{RecettePlatSoir} to Recette
+}

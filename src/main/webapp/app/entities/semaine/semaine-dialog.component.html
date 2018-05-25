@@ -1,0 +1,74 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="mySemaineLabel">Create or edit a Semaine</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!semaine.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="semaine.id" readonly />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" for="field_lundi">Lundi</label>
+            <select class="form-control" id="field_lundi" name="lundi" [(ngModel)]="semaine.lundi">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="jourOption.id === semaine.lundi?.id ? semaine.lundi : jourOption" *ngFor="let jourOption of lundis; trackBy: trackJourById">{{jourOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_mardi">Mardi</label>
+            <select class="form-control" id="field_mardi" name="mardi" [(ngModel)]="semaine.mardi">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="jourOption.id === semaine.mardi?.id ? semaine.mardi : jourOption" *ngFor="let jourOption of mardis; trackBy: trackJourById">{{jourOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_mercredi">Mercredi</label>
+            <select class="form-control" id="field_mercredi" name="mercredi" [(ngModel)]="semaine.mercredi">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="jourOption.id === semaine.mercredi?.id ? semaine.mercredi : jourOption" *ngFor="let jourOption of mercredis; trackBy: trackJourById">{{jourOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_jeudi">Jeudi</label>
+            <select class="form-control" id="field_jeudi" name="jeudi" [(ngModel)]="semaine.jeudi">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="jourOption.id === semaine.jeudi?.id ? semaine.jeudi : jourOption" *ngFor="let jourOption of jeudis; trackBy: trackJourById">{{jourOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_vendredi">Vendredi</label>
+            <select class="form-control" id="field_vendredi" name="vendredi" [(ngModel)]="semaine.vendredi">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="jourOption.id === semaine.vendredi?.id ? semaine.vendredi : jourOption" *ngFor="let jourOption of vendredis; trackBy: trackJourById">{{jourOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_samedi">Samedi</label>
+            <select class="form-control" id="field_samedi" name="samedi" [(ngModel)]="semaine.samedi">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="jourOption.id === semaine.samedi?.id ? semaine.samedi : jourOption" *ngFor="let jourOption of samedis; trackBy: trackJourById">{{jourOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_dimanche">Dimanche</label>
+            <select class="form-control" id="field_dimanche" name="dimanche" [(ngModel)]="semaine.dimanche">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="jourOption.id === semaine.dimanche?.id ? semaine.dimanche : jourOption" *ngFor="let jourOption of dimanches; trackBy: trackJourById">{{jourOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>
