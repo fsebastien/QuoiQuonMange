@@ -1,0 +1,64 @@
+
+<div *ngIf="semaine">
+    <h2><span>Semaine</span> {{semaine.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Lundi</span></dt>
+        <dd>
+            <div *ngIf="semaine.lundi">
+                <a [routerLink]="['/jour', semaine.lundi?.id]">{{semaine.lundi?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Mardi</span></dt>
+        <dd>
+            <div *ngIf="semaine.mardi">
+                <a [routerLink]="['/jour', semaine.mardi?.id]">{{semaine.mardi?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Mercredi</span></dt>
+        <dd>
+            <div *ngIf="semaine.mercredi">
+                <a [routerLink]="['/jour', semaine.mercredi?.id]">{{semaine.mercredi?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Jeudi</span></dt>
+        <dd>
+            <div *ngIf="semaine.jeudi">
+                <a [routerLink]="['/jour', semaine.jeudi?.id]">{{semaine.jeudi?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Vendredi</span></dt>
+        <dd>
+            <div *ngIf="semaine.vendredi">
+                <a [routerLink]="['/jour', semaine.vendredi?.id]">{{semaine.vendredi?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Samedi</span></dt>
+        <dd>
+            <div *ngIf="semaine.samedi">
+                <a [routerLink]="['/jour', semaine.samedi?.id]">{{semaine.samedi?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Dimanche</span></dt>
+        <dd>
+            <div *ngIf="semaine.dimanche">
+                <a [routerLink]="['/jour', semaine.dimanche?.id]">{{semaine.dimanche?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'semaine/'+ semaine.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

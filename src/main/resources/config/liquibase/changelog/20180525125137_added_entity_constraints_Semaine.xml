@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Semaine.
+    -->
+    <changeSet id="20180525125137-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="lundi_id"
+                                 baseTableName="semaine"
+                                 constraintName="fk_semaine_lundi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jour"/>
+
+        <addForeignKeyConstraint baseColumnNames="mardi_id"
+                                 baseTableName="semaine"
+                                 constraintName="fk_semaine_mardi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jour"/>
+
+        <addForeignKeyConstraint baseColumnNames="mercredi_id"
+                                 baseTableName="semaine"
+                                 constraintName="fk_semaine_mercredi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jour"/>
+
+        <addForeignKeyConstraint baseColumnNames="jeudi_id"
+                                 baseTableName="semaine"
+                                 constraintName="fk_semaine_jeudi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jour"/>
+
+        <addForeignKeyConstraint baseColumnNames="vendredi_id"
+                                 baseTableName="semaine"
+                                 constraintName="fk_semaine_vendredi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jour"/>
+
+        <addForeignKeyConstraint baseColumnNames="samedi_id"
+                                 baseTableName="semaine"
+                                 constraintName="fk_semaine_samedi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jour"/>
+
+        <addForeignKeyConstraint baseColumnNames="dimanche_id"
+                                 baseTableName="semaine"
+                                 constraintName="fk_semaine_dimanche_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jour"/>
+
+    </changeSet>
+</databaseChangeLog>

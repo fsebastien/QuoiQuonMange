@@ -38,6 +38,9 @@ public class CacheConfiguration {
             cm.createCache(io.florent.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(io.florent.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(io.florent.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(io.florent.domain.Semaine.class.getName(), jcacheConfiguration);
+            cm.createCache(io.florent.domain.Jour.class.getName(), jcacheConfiguration);
+            cm.createCache(io.florent.domain.Recette.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }
